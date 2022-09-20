@@ -1,0 +1,42 @@
+{
+  "client": "Thunder Client",
+  "collectionName": "paging",
+  "dateExported": "2022-09-20T14:05:49.505Z",
+  "version": "1.1",
+  "folders": [],
+  "requests": [
+    {
+      "_id": "3a41840c-6fbf-4496-bfa9-eda7e8588680",
+      "colId": "eab717e8-04ae-4b2f-ac66-f4bbed6319ec",
+      "containerId": "",
+      "name": "insert_comment",
+      "url": "http://localhost:4000/api/comment",
+      "method": "POST",
+      "sortNum": 10000,
+      "created": "2022-09-20T13:46:58.321Z",
+      "modified": "2022-09-20T13:51:44.002Z",
+      "headers": [],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"blogId\": 1,\n  \"commentId\": 0,\n  \"email\": \"trandungksnb00@gmail.com\",\n  \"body\": \"My body\",\n  \"name\": \"TranDung\"\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "6259e2f7-21ac-4636-9389-b01b2bc83ea1",
+      "colId": "eab717e8-04ae-4b2f-ac66-f4bbed6319ec",
+      "containerId": "",
+      "name": "insert_comments",
+      "url": "http://localhost:4000/api/comments",
+      "method": "POST",
+      "sortNum": 20000,
+      "created": "2022-09-20T13:47:12.435Z",
+      "modified": "2022-09-20T13:56:26.871Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    }
+  ]
+}

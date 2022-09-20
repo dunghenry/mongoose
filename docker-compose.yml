@@ -1,0 +1,34 @@
+version: "3.8"
+services:
+  backend:
+    container_name: paging
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 4000:4000
+    #!env_file:
+    #!- ./.env
+    volumes:
+      - './src:/app/src'
+      - /app/node_modules
+    networks:
+      - trandung
+    environment:
+      - PORT=4000
+      - MONGODB_URI=mongodb://mongo:27017/mongoose
+  mongo:
+    image: mongo:5.0.5
+    container_name: mongodb
+    restart: always
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb:/data/db
+    networks:
+      - trandung
+volumes:
+  mongodb:
+networks:
+  trandung:
