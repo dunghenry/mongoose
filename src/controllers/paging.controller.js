@@ -1,6 +1,8 @@
 const {
     insertComment,
     insertComments,
+    list,
+    listHackNews,
 } = require('../services/comment.service');
 const axios = require('axios');
 const pagingController = {
@@ -39,6 +41,44 @@ const pagingController = {
             return res.status(200).json({
                 status: 'success',
                 elements: result,
+            });
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    list: async (req, res) => {
+        const { page = 1, blogId, pagesize = 50 } = req.query;
+        try {
+            return res.status(200).json({
+                status: 'success',
+                elements: await list({
+                    blogId: +blogId,
+                    page: +page,
+                    pagesize: +pagesize,
+                }),
+                meta: {
+                    page,
+                    pagesize,
+                },
+            });
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    listHackNews: async (req, res) => {
+        const { commentId = 0, blogId = 1, pagesize = 30 } = req.query;
+        try {
+            return res.status(200).json({
+                status: 'success',
+                elements: await listHackNews({
+                    blogId: +blogId,
+                    commentId: +commentId,
+                    pagesize: +pagesize,
+                }),
+                meta: {
+                    blogId,
+                    pagesize,
+                },
             });
         } catch (error) {
             console.log(error);
